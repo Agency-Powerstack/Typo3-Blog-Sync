@@ -9,10 +9,10 @@ $EM_CONF[$_EXTKEY] = [
     'author_company' => 'Agency Powerstack',
     'state' => 'stable',
     'clearCacheOnLoad' => 1,
-    'version' => '1.0.2',
+    'version' => '1.0.3',
     'constraints' => [
         'depends' => [
-            'typo3' => '14.0.0-14.99.99',
+            'typo3' => '13.4.0-14.99.99',
             'blog' => '*',
         ],
         'conflicts' => [],

@@ -27,9 +27,11 @@ final class PublicCallbackBackendUserAuthenticator extends BackendUserAuthentica
             '/blog-sync/disconnect',
             '/blog-sync/api/languages',
         ];
-        foreach ($blogSyncPublicPaths as $path) {
-            if (!in_array($path, $this->publicRoutes, true)) {
-                $this->publicRoutes[] = $path;
+        if (property_exists($this, 'publicRoutes')) {
+            foreach ($blogSyncPublicPaths as $path) {
+                if (!in_array($path, $this->publicRoutes, true)) {
+                    $this->publicRoutes[] = $path;
+                }
             }
         }
     }
