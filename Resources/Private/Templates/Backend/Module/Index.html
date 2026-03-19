@@ -1,0 +1,137 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:layout name="Module" />
+
+<f:section name="Before">
+    <f:be.pageRenderer includeJavaScriptModules="{0: '@agencypowerstack/blog-sync/backend-delete-confirm.js'}" />
+</f:section>
+
+<f:section name="Content">
+    <h1><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.heading" /></h1>
+
+    <f:if condition="{frontendUrl}">
+        <f:then>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title"><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.newConnection.title" /></h2>
+                    <p class="card-text">
+                        <f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.newConnection.description" />
+                    </p>
+                    <a href="{connectUrl}" class="btn btn-primary" target="_blank">
+                        <span class="t3js-icon icon icon-size-small icon-state-default icon-actions-plus" data-identifier="actions-plus">
+                            <span class="icon-markup">+</span>
+                        </span>
+                        <f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.newConnection.button" />
+                    </a>
+                </div>
+            </div>
+
+            <h2><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.existingConnections.heading" /></h2>
+
+            <f:if condition="{hasUnconfiguredConnections}">
+                <div class="alert alert-warning">
+                    <strong><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.alert.storageFolderMissing.title" /></strong><br />
+                    <f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.alert.storageFolderMissing.body" />
+                </div>
+            </f:if>
+
+            <f:if condition="{connections}">
+                <f:then>
+                    <div class="table-fit">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.table.siteUrl" /></th>
+                                    <th><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.table.accountEmail" /></th>
+                                    <th><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.table.connectionId" /></th>
+                                    <th><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.table.status" /></th>
+                                    <th><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.table.storageFolder" /></th>
+                                    <th><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.table.lastSync" /></th>
+                                    <th><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.table.actions" /></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <f:for each="{connections}" as="connection">
+                                    <tr>
+                                        <td>{connection.site_url}</td>
+                                        <td>{connection.account_email}</td>
+                                        <td><code>{connection.connection_id}</code></td>
+                                        <td>
+                                            <f:if condition="{connection.sync_enabled}">
+                                                <f:then>
+                                                    <span class="badge bg-success"><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.status.active" /></span>
+                                                </f:then>
+                                                <f:else>
+                                                    <span class="badge bg-secondary"><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.status.disabled" /></span>
+                                                </f:else>
+                                            </f:if>
+                                        </td>
+                                        <td>
+                                            <f:if condition="{connection.storage_folder_label}">
+                                                <f:then>
+                                                    <span class="badge bg-info">{connection.storage_folder_label}</span>
+                                                </f:then>
+                                                <f:else>
+                                                    <span class="badge bg-warning">⚠ <f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.status.notConfigured" /></span>
+                                                </f:else>
+                                            </f:if>
+                                        </td>
+                                        <td>
+                                            <f:if condition="{connection.last_sync}">
+                                                <f:then>
+                                                    <f:format.date format="d.m.Y H:i">{connection.last_sync}</f:format.date>
+                                                </f:then>
+                                                <f:else>
+                                                    <span class="text-muted"><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.status.neverSynced" /></span>
+                                                </f:else>
+                                            </f:if>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="{connection.editUrl}"
+                                                   class="btn btn-default btn-sm" title="{f:translate(key: 'LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.action.edit')}">
+                                                    <span class="t3js-icon icon icon-size-small icon-state-default icon-actions-open">
+                                                        <span class="icon-markup">✏️</span>
+                                                    </span>
+                                                </a>
+                                                <button type="button"
+                                                        class="btn btn-danger btn-sm t3js-blogsync-delete"
+                                                        title="{f:translate(key: 'LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.action.delete')}"
+                                                        data-delete-url="{connection.deleteUrl}"
+                                                        data-email="{connection.account_email}"
+                                                        data-confirm-title="{f:translate(key: 'LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.confirm.title')}"
+                                                        data-confirm-body="{f:translate(key: 'LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.confirm.body', arguments: {0: connection.account_email})}"
+                                                        data-confirm-cancel="{f:translate(key: 'LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.confirm.cancel')}"
+                                                        data-confirm-delete="{f:translate(key: 'LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.confirm.confirmDelete')}">
+                                                    <span class="t3js-icon icon icon-size-small icon-state-default icon-actions-delete">
+                                                        <span class="icon-markup">🗑️</span>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </f:for>
+                            </tbody>
+                        </table>
+                    </div>
+                </f:then>
+                <f:else>
+                    <div class="alert alert-info">
+                        <strong><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.noConnections.title" /></strong><br>
+                        <f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.noConnections.body" />
+                    </div>
+                </f:else>
+            </f:if>
+        </f:then>
+        <f:else>
+            <div class="alert alert-danger">
+                <strong><f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.error.noFrontendUrl.title" /></strong><br>
+                <f:translate key="LLL:EXT:blog_sync/Resources/Private/Language/locallang_mod.xlf:module.error.noFrontendUrl.body" />
+            </div>
+        </f:else>
+    </f:if>
+</f:section>
+
+</html>

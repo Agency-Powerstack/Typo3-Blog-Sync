@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:blog_sync/Resources/Private/Language/locallang_db.xlf" date="2026-03-13T12:00:00Z" product-name="blog_sync">
+		<header/>
+		<body>
+			<trans-unit id="tab.configuration">
+				<source>Configuration</source>
+			</trans-unit>
+			<trans-unit id="tab.authentication">
+				<source>Authentication</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config">
+				<source>Blog Sync Configuration</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.connection_id">
+				<source>Connection ID</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.connection_id.description">
+				<source>Unique identifier for this connection, assigned automatically when linking your Agency Powerstack account.</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.account_email">
+				<source>Account Email</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.account_email.description">
+				<source>Email address of the Agency Powerstack account that created this connection.</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.api_key">
+				<source>API Key</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.api_key.description">
+				<source>Automatically generated API key used by Agency Powerstack to authenticate push requests to this TYPO3 installation. Do not share this key.</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.site_url">
+				<source>Site URL</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.site_url.description">
+				<source>Base URL of this TYPO3 installation as registered with Agency Powerstack.</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.blog_storage_folder">
+				<source>Blog Storage Folder</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.blog_storage_folder.description">
+				<source>Select the TYPO3 page (folder) where blog posts from Agency Powerstack should be stored. This must be a page configured as a blog storage folder in EXT:blog. Without this setting, all uploads from Agency Powerstack will fail with an error.</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.sync_enabled">
+				<source>Sync Enabled</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.sync_enabled.description">
+				<source>When disabled, incoming push requests from Agency Powerstack will be rejected.</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.render_h1_title">
+				<source>Render H1 Title</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.render_h1_title.description">
+				<source>When enabled, a H1 heading with the post title is inserted as the first content element.</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.last_sync">
+				<source>Last Sync</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_config.last_sync.description">
+				<source>Timestamp of the last successful blog post synchronisation from Agency Powerstack. Set automatically.</source>
+			</trans-unit>
+
+			<trans-unit id="tx_blogsync_log">
+				<source>Blog Sync Log</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_log.pid">
+				<source>Configuration</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_log.sync_type">
+				<source>Sync Type</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_log.sync_type.webhook">
+				<source>Webhook</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_log.sync_type.cron">
+				<source>Cron</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_log.sync_type.manual">
+				<source>Manual</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_log.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_log.status.success">
+				<source>Success</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_log.status.error">
+				<source>Error</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_log.imported_count">
+				<source>Imported Count</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_log.failed_count">
+				<source>Failed Count</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_log.message">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="tx_blogsync_log.details">
+				<source>Details (JSON)</source>
+			</trans-unit>
+
+			<trans-unit id="tx_blog_post.external_id">
+				<source>External ID (Blog Sync)</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

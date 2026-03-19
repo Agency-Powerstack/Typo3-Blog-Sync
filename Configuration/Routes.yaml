@@ -1,0 +1,5 @@
+# Routes for EXT:blog_sync
+#
+# API endpoints (push, disconnect) and the OAuth callback are registered as
+# backend routes in Configuration/Backend/Routes.php with access: 'public'.
+# This file is intentionally empty.

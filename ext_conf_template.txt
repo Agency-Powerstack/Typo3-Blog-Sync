@@ -1,0 +1,4 @@
+# No extension configuration required.
+# The Agency Powerstack frontend URL is automatically determined based on the environment:
+# - Development: http://localhost:3081
+# - Production: https://app.agency-powerstack.com

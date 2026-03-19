@@ -1,0 +1,44 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  AgencyPowerstack\BlogSync\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
+
+  # Public Services
+  AgencyPowerstack\BlogSync\Service\ApiAuthenticator:
+    public: true
+
+  AgencyPowerstack\BlogSync\Service\BlogImporter:
+    public: true
+
+  AgencyPowerstack\BlogSync\Service\ImageService:
+    public: true
+
+  AgencyPowerstack\BlogSync\Service\SyncLogger:
+    public: true
+
+  AgencyPowerstack\BlogSync\Service\FrontendUrlService:
+    public: true
+
+  AgencyPowerstack\BlogSync\Service\ConnectCallbackService:
+    public: true
+
+  # Controllers
+  AgencyPowerstack\BlogSync\Controller\BlogSyncModuleController:
+    public: true
+
+  AgencyPowerstack\BlogSync\Controller\ConnectCallbackController:
+    public: true
+
+  AgencyPowerstack\BlogSync\Controller\Api\BlogPushController:
+    public: true
+
+  AgencyPowerstack\BlogSync\Controller\Api\DisconnectController:
+    public: true
+
+  AgencyPowerstack\BlogSync\Controller\Api\LanguagesController:
+    public: true

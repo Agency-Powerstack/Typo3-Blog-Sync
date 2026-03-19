@@ -1,0 +1,60 @@
+services:
+  typo3-db:
+    image: mysql:8.0
+    container_name: typo3-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - typo3-db-data:/var/lib/mysql
+    ports:
+      - "3309:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - typo3-web
+    command: --default-authentication-plugin=mysql_native_password
+
+  typo3-web:
+    build: ./docker
+    container_name: typo3-web
+    restart: unless-stopped
+    depends_on:
+      typo3-db:
+        condition: service_healthy
+    ports:
+      - "8090:80"
+    volumes:
+      - typo3-data:/var/www/html
+      - ./:/var/www/html/packages/blog_sync:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      - "minio:host-gateway"
+    environment:
+      TYPO3_VERSION: ${TYPO3_VERSION:-14.0}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@typo3-db:3306/${MYSQL_DATABASE}
+      TYPO3_ADMIN_USER: ${TYPO3_ADMIN_USER:-admin}
+      TYPO3_ADMIN_PASSWORD: ${TYPO3_ADMIN_PASSWORD}
+      TYPO3_ADMIN_EMAIL: ${TYPO3_ADMIN_EMAIL:-admin@example.com}
+      TYPO3_INSTALL_TOOL_PASSWORD: ${TYPO3_INSTALL_TOOL_PASSWORD}
+      BLOG_SYNC_FRONTEND_URL: ${BLOG_SYNC_FRONTEND_URL:-http://localhost:3000}
+      TYPO3_CONTEXT: Development
+    networks:
+      - typo3-web
+
+volumes:
+  typo3-db-data:
+  typo3-data:
+
+networks:
+  typo3-web:
+    driver: bridge

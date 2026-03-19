@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2026-03-16T00:00:00Z" product-name="blog_sync">
+		<header/>
+		<body>
+			<trans-unit id="mlang_tabs_tab" resname="mlang_tabs_tab">
+				<source>Blog Sync</source>
+			</trans-unit>
+			<trans-unit id="mlang_labels_tabdescr" resname="mlang_labels_tabdescr">
+				<source>Manage blog synchronization with Agency Powerstack</source>
+			</trans-unit>
+			<trans-unit id="mlang_labels_tablabel" resname="mlang_labels_tablabel">
+				<source>Blog Sync</source>
+			</trans-unit>
+
+			<trans-unit id="module.heading">
+				<source>Blog Sync Configuration</source>
+			</trans-unit>
+			<trans-unit id="module.newConnection.title">
+				<source>Create New Connection</source>
+			</trans-unit>
+			<trans-unit id="module.newConnection.description">
+				<source>Connect your Agency Powerstack account with TYPO3 to synchronize blogs automatically.</source>
+			</trans-unit>
+			<trans-unit id="module.newConnection.button">
+				<source>Link New Account</source>
+			</trans-unit>
+			<trans-unit id="module.existingConnections.heading">
+				<source>Existing Connections</source>
+			</trans-unit>
+			<trans-unit id="module.alert.storageFolderMissing.title">
+				<source>Storage Folder Missing</source>
+			</trans-unit>
+			<trans-unit id="module.alert.storageFolderMissing.body">
+				<source>At least one connection does not have a blog storage folder configured. Blog posts cannot be uploaded until the folder is set. Please click Edit and select a page.</source>
+			</trans-unit>
+			<trans-unit id="module.table.siteUrl">
+				<source>Site URL</source>
+			</trans-unit>
+			<trans-unit id="module.table.accountEmail">
+				<source>Account Email</source>
+			</trans-unit>
+			<trans-unit id="module.table.connectionId">
+				<source>Connection ID</source>
+			</trans-unit>
+			<trans-unit id="module.table.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="module.table.storageFolder">
+				<source>Storage Folder</source>
+			</trans-unit>
+			<trans-unit id="module.table.lastSync">
+				<source>Last Synchronization</source>
+			</trans-unit>
+			<trans-unit id="module.table.actions">
+				<source>Actions</source>
+			</trans-unit>
+			<trans-unit id="module.status.active">
+				<source>Active</source>
+			</trans-unit>
+			<trans-unit id="module.status.disabled">
+				<source>Disabled</source>
+			</trans-unit>
+			<trans-unit id="module.status.notConfigured">
+				<source>Not configured</source>
+			</trans-unit>
+			<trans-unit id="module.status.neverSynced">
+				<source>Never synchronized</source>
+			</trans-unit>
+			<trans-unit id="module.action.edit">
+				<source>Edit</source>
+			</trans-unit>
+			<trans-unit id="module.action.delete">
+				<source>Delete Connection</source>
+			</trans-unit>
+			<trans-unit id="module.noConnections.title">
+				<source>No Connections Found</source>
+			</trans-unit>
+			<trans-unit id="module.noConnections.body">
+				<source>Click "Link New Account" to create a connection.</source>
+			</trans-unit>
+			<trans-unit id="module.error.noFrontendUrl.title">
+				<source>Frontend URL Not Configured</source>
+			</trans-unit>
+			<trans-unit id="module.error.noFrontendUrl.body">
+				<source>Please set the frontend URL in the extension configuration.</source>
+			</trans-unit>
+
+			<trans-unit id="module.confirm.title">
+				<source>Delete Connection</source>
+			</trans-unit>
+			<trans-unit id="module.confirm.body">
+				<source>Should the connection for "%s" really be deleted? The blog synchronization with Agency Powerstack will be permanently terminated.</source>
+			</trans-unit>
+			<trans-unit id="module.confirm.cancel">
+				<source>Cancel</source>
+			</trans-unit>
+			<trans-unit id="module.confirm.confirmDelete">
+				<source>Delete Permanently</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

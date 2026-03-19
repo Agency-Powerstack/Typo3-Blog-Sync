@@ -1,8 +1,32 @@
-## TYPO3 v6.2
-# Ignore several upload and file directories.
+# Environment
+.env
+
+# TYPO3
+/public/
+/var/
+/vendor/
+/.Build/
 /fileadmin/user_upload/
 /fileadmin/_temp_/
 /fileadmin/_processed_/
+
+# Docker volumes
+/typo3-data/
+/mysql-data/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.lock
 /uploads/
 # Ignore cache
 /typo3conf/temp_CACHED*

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2026-03-16T00:00:00Z" product-name="blog_sync">
+		<header/>
+		<body>
+			<trans-unit id="mlang_tabs_tab" resname="mlang_tabs_tab">
+				<source>Blog Sync</source>
+				<target>Blog Sync</target>
+			</trans-unit>
+			<trans-unit id="mlang_labels_tabdescr" resname="mlang_labels_tabdescr">
+				<source>Manage blog synchronization with Agency Powerstack</source>
+				<target>Blog-Synchronisation mit Agency Powerstack verwalten</target>
+			</trans-unit>
+			<trans-unit id="mlang_labels_tablabel" resname="mlang_labels_tablabel">
+				<source>Blog Sync</source>
+				<target>Blog Sync</target>
+			</trans-unit>
+
+			<trans-unit id="module.heading">
+				<source>Blog Sync Configuration</source>
+				<target>Blog Sync Konfiguration</target>
+			</trans-unit>
+			<trans-unit id="module.newConnection.title">
+				<source>Create New Connection</source>
+				<target>Neue Verbindung erstellen</target>
+			</trans-unit>
+			<trans-unit id="module.newConnection.description">
+				<source>Connect your Agency Powerstack account with TYPO3 to synchronize blogs automatically.</source>
+				<target>Verbinden Sie Ihr Agency Powerstack Konto mit TYPO3, um Blogs automatisch zu synchronisieren.</target>
+			</trans-unit>
+			<trans-unit id="module.newConnection.button">
+				<source>Link New Account</source>
+				<target>Neuen Account verknüpfen</target>
+			</trans-unit>
+			<trans-unit id="module.existingConnections.heading">
+				<source>Existing Connections</source>
+				<target>Bestehende Verbindungen</target>
+			</trans-unit>
+			<trans-unit id="module.alert.storageFolderMissing.title">
+				<source>Storage Folder Missing</source>
+				<target>Speicherordner fehlt</target>
+			</trans-unit>
+			<trans-unit id="module.alert.storageFolderMissing.body">
+				<source>At least one connection does not have a blog storage folder configured. Blog posts cannot be uploaded until the folder is set. Please click Edit and select a page.</source>
+				<target>Mindestens eine Verbindung hat noch keinen Blog-Speicherordner konfiguriert. Blog-Posts können erst hochgeladen werden, sobald der Ordner gesetzt ist. Bitte klicken Sie auf Bearbeiten und wählen Sie eine Seite aus.</target>
+			</trans-unit>
+			<trans-unit id="module.table.siteUrl">
+				<source>Site URL</source>
+				<target>Site URL</target>
+			</trans-unit>
+			<trans-unit id="module.table.accountEmail">
+				<source>Account Email</source>
+				<target>Account Email</target>
+			</trans-unit>
+			<trans-unit id="module.table.connectionId">
+				<source>Connection ID</source>
+				<target>Connection ID</target>
+			</trans-unit>
+			<trans-unit id="module.table.status">
+				<source>Status</source>
+				<target>Status</target>
+			</trans-unit>
+			<trans-unit id="module.table.storageFolder">
+				<source>Storage Folder</source>
+				<target>Speicherordner</target>
+			</trans-unit>
+			<trans-unit id="module.table.lastSync">
+				<source>Last Synchronization</source>
+				<target>Letzte Synchronisation</target>
+			</trans-unit>
+			<trans-unit id="module.table.actions">
+				<source>Actions</source>
+				<target>Aktionen</target>
+			</trans-unit>
+			<trans-unit id="module.status.active">
+				<source>Active</source>
+				<target>Aktiv</target>
+			</trans-unit>
+			<trans-unit id="module.status.disabled">
+				<source>Disabled</source>
+				<target>Deaktiviert</target>
+			</trans-unit>
+			<trans-unit id="module.status.notConfigured">
+				<source>Not configured</source>
+				<target>Nicht konfiguriert</target>
+			</trans-unit>
+			<trans-unit id="module.status.neverSynced">
+				<source>Never synchronized</source>
+				<target>Noch nicht synchronisiert</target>
+			</trans-unit>
+			<trans-unit id="module.action.edit">
+				<source>Edit</source>
+				<target>Bearbeiten</target>
+			</trans-unit>
+			<trans-unit id="module.action.delete">
+				<source>Delete Connection</source>
+				<target>Verknüpfung löschen</target>
+			</trans-unit>
+			<trans-unit id="module.noConnections.title">
+				<source>No Connections Found</source>
+				<target>Keine Verbindungen gefunden</target>
+			</trans-unit>
+			<trans-unit id="module.noConnections.body">
+				<source>Click "Link New Account" to create a connection.</source>
+				<target>Klicken Sie auf "Neuen Account verknüpfen", um eine Verbindung zu erstellen.</target>
+			</trans-unit>
+			<trans-unit id="module.error.noFrontendUrl.title">
+				<source>Frontend URL Not Configured</source>
+				<target>Frontend URL nicht konfiguriert</target>
+			</trans-unit>
+			<trans-unit id="module.error.noFrontendUrl.body">
+				<source>Please set the frontend URL in the extension configuration.</source>
+				<target>Bitte setzen Sie die Frontend URL in der Extension-Konfiguration.</target>
+			</trans-unit>
+
+			<trans-unit id="module.confirm.title">
+				<source>Delete Connection</source>
+				<target>Verknüpfung löschen</target>
+			</trans-unit>
+			<trans-unit id="module.confirm.body">
+				<source>Should the connection for "%s" really be deleted? The blog synchronization with Agency Powerstack will be permanently terminated.</source>
+				<target>Soll die Verknüpfung für "%s" wirklich gelöscht werden? Die Blog-Synchronisation mit Agency Powerstack wird dauerhaft beendet.</target>
+			</trans-unit>
+			<trans-unit id="module.confirm.cancel">
+				<source>Cancel</source>
+				<target>Abbrechen</target>
+			</trans-unit>
+			<trans-unit id="module.confirm.confirmDelete">
+				<source>Delete Permanently</source>
+				<target>Endgültig löschen</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
