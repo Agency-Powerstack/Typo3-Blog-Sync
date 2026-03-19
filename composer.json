@@ -1,5 +1,5 @@
 {
-  "name": "agencypowerstack/blog-sync",
+  "name": "agencypowerstack/typo3-blog-sync",
   "type": "typo3-cms-extension",
   "description": "Synchronize blogs from Agency Powerstack to TYPO3 Blog extension via REST API",
   "homepage": "https://agency-powerstack.com",
