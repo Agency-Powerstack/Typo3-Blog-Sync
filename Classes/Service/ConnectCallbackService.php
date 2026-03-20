@@ -43,19 +43,20 @@ final class ConnectCallbackService
         }
 
         try {
-            $apiKey = bin2hex(random_bytes(32));
             $sanitizedAccountEmail = mb_substr(strip_tags($accountEmail), 0, 255);
 
             $connection = $this->connectionPool->getConnectionForTable('tx_blogsync_config');
             $existing = $connection->fetchAssociative(
-                'SELECT uid FROM tx_blogsync_config WHERE connection_id = ?',
+                'SELECT uid, api_key FROM tx_blogsync_config WHERE connection_id = ?',
                 [$connectionId]
             );
 
             if ($existing) {
+                // Reuse the existing api_key – prevents key mismatch if the callback fires twice
+                // (e.g. browser double-redirect or user clicking "Connect" again for the same connection).
+                $apiKey = (string) $existing['api_key'];
                 $update = [
                     'tstamp' => time(),
-                    'api_key' => $apiKey,
                     'site_url' => $siteUrl,
                 ];
                 if ($sanitizedAccountEmail !== '') {
@@ -63,6 +64,7 @@ final class ConnectCallbackService
                 }
                 $connection->update('tx_blogsync_config', $update, ['connection_id' => $connectionId]);
             } else {
+                $apiKey = bin2hex(random_bytes(32));
                 $connection->insert('tx_blogsync_config', [
                     'pid' => 0,
                     'tstamp' => time(),
