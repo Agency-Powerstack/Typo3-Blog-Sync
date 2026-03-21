@@ -43,6 +43,14 @@ final class ApiAuthenticator
         }
 
         if (!str_starts_with($authHeader, 'Bearer ')) {
+            // Final fallback: custom header that reverse proxies do not typically strip
+            $apiKeyHeader = $request->getHeaderLine('X-BlogSync-Api-Key');
+            if ($apiKeyHeader !== '') {
+                $authHeader = 'Bearer ' . $apiKeyHeader;
+            }
+        }
+
+        if (!str_starts_with($authHeader, 'Bearer ')) {
             return null;
         }
 
