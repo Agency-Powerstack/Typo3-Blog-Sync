@@ -33,6 +33,15 @@ final class ApiAuthenticator
     public function authenticate(ServerRequestInterface $request, bool $requireEnabled = true): ?array
     {
         $authHeader = $request->getHeaderLine('Authorization');
+        if ($authHeader === '') {
+            // Fallback: Apache mod_rewrite may place the header in REDIRECT_HTTP_AUTHORIZATION
+            // instead of HTTP_AUTHORIZATION, which the PSR-7 factory does not map to headers.
+            $serverParams = $request->getServerParams();
+            $authHeader = $serverParams['REDIRECT_HTTP_AUTHORIZATION']
+                ?? $serverParams['HTTP_AUTHORIZATION']
+                ?? '';
+        }
+
         if (!str_starts_with($authHeader, 'Bearer ')) {
             return null;
         }
